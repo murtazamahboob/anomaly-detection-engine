@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anomaly-detection-engine"
+version = "1.0.0"
+description = "Offline anomaly detection engine: Isolation Forest + autoencoder + LSTM sequence autoencoder with explanations, persistence, alert grouping and reviewer feedback — pure NumPy."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Murtaza Mahboob" }]
+keywords = [
+    "anomaly-detection",
+    "isolation-forest",
+    "autoencoder",
+    "lstm",
+    "time-series",
+    "offline-ai",
+    "python",
+    "numpy",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy==1.26.4"]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0"]
+
+[project.scripts]
+anomalydetect = "anomalydetect.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
